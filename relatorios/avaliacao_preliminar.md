@@ -36,10 +36,10 @@ Na figura abaixo, vemos que, considerando toda a Câmara dos Deputados, se usarm
 
 Na figura abaixo, por sua vez, observamos como uma distribuição pela população censitária de 2022, a distribuição de 531 leva a menores perdas absolutas de cadeiras por alguns estados, como Rio de Janeiro, Bahia, Rio Grande do Sul, Piauí, Paraíba e Pernambuco, quando comparados às 513 cadeiras. Além disso, em relação à distribuição proposta no PLP 177/23, alguns estados como Ceará, Goiás, Minas Gerais, Mato Grosso, Pará e Santa Catarina ganhariam mais cadeiras -- já o Rio Grande do Norte ganharia uma cadeira a menos.
 
-![](/relatorios/figuras/lsq_comparacao.png = 3x2)
+![](/relatorios/figuras/diferencas_cadeiras.jpg)
 
 ### Desproporcionalidade, excetuando UFs com números mínimo e máximo de deputados
 
 Por fim, avaliamos a desproporcionalidade considerando somente o universo de cadeiras e de UFs uma vez excluídas aquelas que têm o número mínimo (8) ou máximo (70) de cadeiras -- isto é $8 < M < 70$. Para tanto, simulamos diferentes tamanhos de Câmara dos Deputados (entre 500 e 650 cadeiras). Vemos na figura abaixo como quaisquer distribuições baseadas nos dados Censitários e a partir da metodologia de atualização proposta no próprio PLP 177/23 são mais proporcionais que a distribuição atual e aquela proposta no PLP para entrada em vigor nas eleições de 2026. Porém, vale ressaltar que entre a distribuição atual e a nova, considerando-se somente as UFs em que $8 < M < 70$, a nova distribuição é menos desproporcional.
 
-![](/relatorios/figuras/desproporcionalidade_cadeiras.jpg)
+![](/relatorios/figuras/desproporcionalidade_cadeiras.png)
