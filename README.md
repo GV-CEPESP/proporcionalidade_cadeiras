@@ -5,7 +5,7 @@ Este repositório contém os códigos, documentos com a metodologia e resultados
 #### Organização deste reposit'oório
 
 - [`codigos`](/codigos/): apresenta os códigos em R utilizados nesta análise.
-- [`relatorios`](/relatorios/): inserimos relatórios de resultados alcançados.  
+- [`relatorios`](/relatorios/): materiais e [relatório](/relatorios/avaliacao_preliminar.md) de resultados.
 - [`dados`](/dados/): apresenta planilhas das simulações geradas nas análises.  
 
 #### Autoria

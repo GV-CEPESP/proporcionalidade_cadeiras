@@ -36,7 +36,7 @@ Na figura abaixo, vemos que, considerando toda a Câmara dos Deputados, se usarm
 
 Na figura abaixo, por sua vez, observamos como uma distribuição pela população censitária de 2022, a distribuição de 531 leva a menores perdas absolutas de cadeiras por alguns estados, como Rio de Janeiro, Bahia, Rio Grande do Sul, Piauí, Paraíba e Pernambuco, quando comparados às 513 cadeiras. Além disso, em relação à distribuição proposta no PLP 177/23, alguns estados como Ceará, Goiás, Minas Gerais, Mato Grosso, Pará e Santa Catarina ganhariam mais cadeiras -- já o Rio Grande do Norte ganharia uma cadeira a menos.
 
-![](/relatorios/figuras/lsq_comparacao.png)
+![](/relatorios/figuras/lsq_comparacao.png = 3x2)
 
 ### Desproporcionalidade, excetuando UFs com números mínimo e máximo de deputados
 
