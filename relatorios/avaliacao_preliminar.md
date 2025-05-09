@@ -6,7 +6,9 @@ O [PLP 177/23](https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codt
 
 Em sua decisão, o STF destaca que o objetivo da revisão é corrigir eventuais distorções na proporcionalidade da relação deputado/população. Neste documento, apresentamos resultados de uma avaliação de cenários de distribuição de cadeiras e sua eventual proporcionalidade.
 
-## Metodologia para distribuição de cadeiras
+## Metodologia
+
+### Metodologia para distribuição de cadeiras
 
 Comparamos a [atual distribuição de cadeiras da Câmara dos Deputados](https://www2.camara.leg.br/a-camara/conheca/numero-de-deputados-por-estado) e aquela prevista no [anexo do PLP 177/23](https://www.camara.leg.br/proposicoesWeb/prop_mostrarintegra?codteor=2900034&filename=Tramitacao-PLP%20177/2023) com eventuais distribuições alternativas realizadas pelo método proposto no PLP 177/23 (art. 5º) e na [Resolução-TSE n. 23.389/2013](https://www.migalhas.com.br/arquivos/2014/5/art20140528-01.pdf). Todos os cálculos são apresentados no código [codigos/dist_cadeiras.R] deste repositório.
 

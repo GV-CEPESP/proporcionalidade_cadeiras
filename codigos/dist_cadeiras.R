@@ -102,6 +102,9 @@ dados <- populacao2010 |>
   left_join(proposta_camara, by = "sg_uf") |> 
   select(sg_uf, pop2010, pop2022, eleitorado2025, cadeiras_atual, dist_camara)
 
+# Exporta essas informacoes
+write.csv2(dados, "dados/parametros_populacionais.csv", row.names = F)
+
 ################################################################################
 
 ##### Calculo da distribuicao de cadeiras por diferentes metodos
@@ -230,6 +233,9 @@ estimativas <- estimativas[[1]] |>
   left_join(estimativas[[5]]) |> 
   left_join(estimativas[[6]])  
 
+# Exporta estimativas
+write.csv2(estimativas, "dados/estimativas_cadeiras.csv", row.names = F)
+
 ################################################################################
 
 ##### Avalia a proporcionalidade dos resultados
@@ -246,6 +252,9 @@ final_proporcoes <- final |>
       c(-sg_uf), 
       function(x) round_half_up(100*x/sum(x, na.rm = T), 2), 
       .names = "prop_{.col}"))
+
+# Exporta final_proporcoes
+write.csv2(final_proporcoes, "dados/proporcoes_atual_estimativas.csv", row.names = F)
 
 ### Calcula metricas de desproporcionalidade
 
@@ -277,6 +286,9 @@ metricas_final <- tibble(
     medida = str_remove(medida, "_")) |> 
   select(medida, estimativa, resultado) |> 
   arrange(medida, resultado) 
+
+# Exporta desproporcionalidade para diferentes estimativas
+write.csv2(metricas_final, "dados/estimativas_desproporcionalidade.csv", row.names = F)
 
 ################################################################################
 
@@ -431,8 +443,8 @@ for(cadeiras in 500:650){
   
 }
 
-# Plota o grafico
-tabela_variaveis |> 
+# Adiciona a atual e nova
+tabela_variaveis <- tabela_variaveis |> 
   mutate(
     # Cria variavel mostrando o n. de cadeiras da distribuicao atual e do PLP
     marco = case_when(
@@ -440,7 +452,13 @@ tabela_variaveis |>
       n_cadeiras == 531 ~ "Metod. de distribuição: PLP/TSE",
       T ~ NA),
     serie = "simulada") |> 
-  bind_rows(desp_atual, desp_nova) |> 
+  bind_rows(desp_atual, desp_nova)
+
+# Exporta simulacoes
+write.csv2(tabela_variaveis, "dados/desproporcionalidade_sim_foralimites.csv", row.names = F)
+
+# Plota o grafico
+tabela_variaveis |> 
   ggplot() +
   geom_line(aes(x = n_cadeiras, y = desproporcionalidade, group = serie),
             color = "darkgrey") +
