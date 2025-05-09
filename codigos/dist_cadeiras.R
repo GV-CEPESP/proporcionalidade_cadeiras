@@ -103,7 +103,7 @@ dados <- populacao2010 |>
   select(sg_uf, pop2010, pop2022, eleitorado2025, cadeiras_atual, dist_camara)
 
 # Exporta essas informacoes
-write.csv2(dados, "dados/parametros_populacionais.csv", row.names = F)
+write.csv(dados, "dados/parametros_populacionais.csv", row.names = F)
 
 ################################################################################
 
@@ -234,7 +234,7 @@ estimativas <- estimativas[[1]] |>
   left_join(estimativas[[6]])  
 
 # Exporta estimativas
-write.csv2(estimativas, "dados/estimativas_cadeiras.csv", row.names = F)
+write.csv(estimativas, "dados/estimativas_cadeiras.csv", row.names = F)
 
 ################################################################################
 
@@ -254,7 +254,7 @@ final_proporcoes <- final |>
       .names = "prop_{.col}"))
 
 # Exporta final_proporcoes
-write.csv2(final_proporcoes, "dados/proporcoes_atual_estimativas.csv", row.names = F)
+write.csv(final_proporcoes, "dados/proporcoes_atual_estimativas.csv", row.names = F)
 
 ### Calcula metricas de desproporcionalidade
 
@@ -288,7 +288,7 @@ metricas_final <- tibble(
   arrange(medida, resultado) 
 
 # Exporta desproporcionalidade para diferentes estimativas
-write.csv2(metricas_final, "dados/estimativas_desproporcionalidade.csv", row.names = F)
+write.csv(metricas_final, "dados/estimativas_desproporcionalidade.csv", row.names = F)
 
 ################################################################################
 
@@ -455,7 +455,7 @@ tabela_variaveis <- tabela_variaveis |>
   bind_rows(desp_atual, desp_nova)
 
 # Exporta simulacoes
-write.csv2(tabela_variaveis, "dados/desproporcionalidade_sim_foralimites.csv", row.names = F)
+write.csv(tabela_variaveis, "dados/desproporcionalidade_sim_foralimites.csv", row.names = F)
 
 # Plota o grafico
 tabela_variaveis |> 
@@ -490,4 +490,4 @@ tabela_variaveis |>
     legend.key.width = unit(0.5, "cm"),
     legend.text = element_text(size = 5),
     legend.margin = margin(c(0, 0, 0, 0)))
-#ggsave("relatorios/figuras//desproporcionalidade_cadeiras.png", width = 4, height = 3)
+#ggsave("relatorios/figuras/desproporcionalidade_cadeiras.png", width = 4, height = 3)
