@@ -283,10 +283,6 @@ metricas_final <- tibble(
 ##### Comparacao da desproporcionalidade por diferentes metodos
 
 metricas_final |> 
-  # Filtra as medidas/estimativas que queremos plotar
-  # filter(medida == "lsq",
-  #        estimativa %in% c("513_2022", "atual", "531_2022", "camara")
-  # ) |> 
   # Cria labels para a variavel estimativa, para melhorar viz
   mutate(estimativa = factor(
     estimativa,
@@ -299,8 +295,8 @@ metricas_final |>
   geom_point(aes(x = estimativa, y = resultado)) +
   geom_line(aes(x = estimativa, y = resultado, group = "valor")) +
   geom_label(
-    aes(x = estimativa, y = resultado + 0.3, label = resultado),
-    size = 3) +
+    aes(x = estimativa, y = resultado + 0.5, label = resultado),
+    size = 2.2) +
   scale_y_continuous(limits = c(0, 7)) +
   labs(
     title = "Desproporcionalidade na distribuição de cadeiras\nna Câmara dos Deputados - simulações",
@@ -308,14 +304,16 @@ metricas_final |>
     caption = "Fonte: elaborado por Mesquita e Gelape (2025),\ncom base em dados do IBGE, TSE e Câmara dos Deputados.") +
   theme_bw() +
   theme(
-    plot.title = element_text(hjust = 0.5, size = 10), 
-    plot.caption = element_text(hjust = 0.5, size = 6), 
+    plot.title = element_text(hjust = 0.5, size = 8), 
+    plot.caption = element_text(hjust = 0.5, size = 4), 
     axis.title.x = element_blank(),
-    axis.title.y = element_text(size = 8),
-    axis.text = element_text(size = 7))
-#ggsave("relatorios/figuras/lsq_comparacao.png", width = 6, height = 4.5)
+    axis.title.y = element_text(size = 6),
+    axis.text = element_text(size = 5))
+#ggsave("relatorios/figuras/lsq_comparacao.png", width = 4.5, height = 3)
 
-### Perda/ganho de cadeiras por diferentes metodos
+################################################################################
+
+##### Perda/ganho de cadeiras por diferentes metodos
 
 # Calcula a diferenca de cadeiras em cada metodo
 diferencas <- final |> 
@@ -345,7 +343,7 @@ diferencas |>
   ggplot() +
   geom_col(aes(x = diferenca, y = sg_uf, fill = ganho), 
            color = "black", linewidth = 0.2) +
-  geom_vline(xintercept = 0, linetype = "dashed", linewidth = 0.4) +
+  geom_vline(xintercept = 0, linetype = "dashed", linewidth = 0.3) +
   facet_wrap(~ tipo, nrow = 1) +
   scale_x_continuous(breaks = seq(-4, 5, 1)) +
   scale_fill_manual(values = c("darkred", "darkgreen")) +
@@ -356,14 +354,15 @@ diferencas |>
     caption = "Fonte: elaborado por Mesquita e Gelape (2025),\ncom base em dados do IBGE, TSE e Câmara dos Deputados.") +
   theme_bw() +
   theme(
-    plot.title = element_text(hjust = 0.5, size = 10), 
-    plot.caption = element_text(hjust = 0.5, size = 6),
+    plot.title = element_text(hjust = 0.5, size = 8), 
+    plot.caption = element_text(hjust = 0.5, size = 4),
     axis.title.y = element_blank(),
-    axis.title.x = element_text(size = 8),
-    axis.text = element_text(size = 7),
-    panel.grid.major = element_line(linewidth = 0.25),
+    axis.title.x = element_text(size = 6),
+    axis.text = element_text(size = 5),
+    strip.text = element_text(size = 6),
+    panel.grid.major = element_line(linewidth = 0.2),
     panel.grid.minor = element_blank()) 
-#ggsave("resultados/imagens/diferencas_cadeiras.jpg", width = 6, height = 4)
+#ggsave("relatorios/figuras/diferencas_cadeiras.jpg", width = 4, height = 3)
 
 ################################################################################
 
@@ -437,8 +436,8 @@ tabela_variaveis |>
   mutate(
     # Cria variavel mostrando o n. de cadeiras da distribuicao atual e do PLP
     marco = case_when(
-      n_cadeiras == 513 ~ "Distribuição TSE",
-      n_cadeiras == 531 ~ "Distribuição TSE",
+      n_cadeiras == 513 ~ "Metod. de distribuição: PLP/TSE",
+      n_cadeiras == 531 ~ "Metod. de distribuição: PLP/TSE",
       T ~ NA),
     serie = "simulada") |> 
   bind_rows(desp_atual, desp_nova) |> 
@@ -460,17 +459,17 @@ tabela_variaveis |>
          shape = guide_legend(title = NULL)) +
   theme_bw() +
   theme(
-    plot.title = element_text(hjust = 0.5, size = 10), 
-    plot.subtitle = element_text(hjust = 0.5, size = 8), 
-    plot.caption = element_text(hjust = 0.5, size = 6),
-    axis.title = element_text(size = 8),
-    axis.text = element_text(size = 7),
+    plot.title = element_text(hjust = 0.5, size = 8), 
+    plot.subtitle = element_text(hjust = 0.5, size = 6), 
+    plot.caption = element_text(hjust = 0.5, size = 4),
+    axis.title = element_text(size = 6),
+    axis.text = element_text(size = 5),
     panel.grid.major = element_line(linewidth = 0.25),
     panel.grid.minor = element_blank(),
     legend.position = "bottom",
     legend.box.spacing = unit(0.25, "cm"),
     legend.key.height = unit(0.5, "cm"),
     legend.key.width = unit(0.5, "cm"),
-    legend.text = element_text(size = 7),
+    legend.text = element_text(size = 5),
     legend.margin = margin(c(0, 0, 0, 0)))
-#ggsave("resultados/imagens/desproporcionalidade_cadeiras.jpg", width = 6, height = 4)
+#ggsave("relatorios/figuras//desproporcionalidade_cadeiras.png", width = 4, height = 3)
