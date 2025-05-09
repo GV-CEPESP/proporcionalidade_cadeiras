@@ -2,11 +2,11 @@
 
 Este repositório contém os códigos, documentos com a metodologia e resultados, e planilhas com os resultados brutos de um exercício de distribuição de cadeiras na Câmara de Deputados brasileira.
 
-#### Organização deste reposit'oório
+#### Organização deste repositório
 
 - [`codigos`](/codigos/): apresenta os códigos em R utilizados nesta análise.
 - [`relatorios`](/relatorios/): materiais e [relatório](/relatorios/avaliacao_preliminar.md) de resultados.
-- [`dados`](/dados/): apresenta planilhas das simulações geradas nas análises.  
+- [`dados`](/dados/): apresenta planilhas dos dados utilizados e simulações geradas nas análises.
 
 #### Autoria
 
