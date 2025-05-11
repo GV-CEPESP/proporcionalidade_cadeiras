@@ -23,7 +23,7 @@ Inicialmente, validamos nosso algoritmo de distribuição de cadeiras pela redis
 A dificuldade de mensuração da proporcionalidade é uma [questão notória na literatura especializada](https://doi.org/10.1093/oxfordjournals.pan.a029822). Para avaliar a proporcionalidade da distribuição de cadeiras, adaptamos o [índice de Gallagher](https://cepesp.fgv.br/saiba-mais-sobre-indicadores), também conhecido como índice dos mínimos quadrados (*least squares index*), proposto pelo cientista político Michael Gallagher em [artigo publicado na revista *Electoral Studies*](https://doi.org/10.1016/0261-3794(91)90004-c). Este índice é calculado da seguinte forma:
 
 $$
-\text{LSq} = \sqrt{ \frac{1}{2} \sum_{i=1}^{n} (c_i - p_i)^2 }
+\text{LSq} = \sqrt{ \frac{1}{2} \sum_{i=1}^{n} (m_i - p_i)^2 }
 $$
 
 onde $m_i$ é o percentual de cadeiras destinada ao estado $i$ em uma distribuição; $p_i$ é a população do estado $i$; e $n$ é o total de unidades federativas.
